@@ -54,8 +54,9 @@ class Troco
     public function getQtdeNotas($reais)
     {
 
-        // Enquanto não tiver dado todo o troco, e ainda ter dinheiro em caixa, com a maior nota disponível podendo pagar o que sobrou
-        while ($reais > 0 && array_sum($this->notasDisponiveis) > $reais){            
+        // TODO: Enquanto não tiver dado todo o troco e ainda ter dinheiro em caixa com a maior nota disponível podendo pagar o que sobrou
+        //while ($reais > 0 && array_sum($this->notasDisponiveis) > 0) {
+
             foreach ($this->notas as $nota) {
                 
                 while ($nota <= $reais && $this->notasDisponiveis[(string)$nota] > 0) {
@@ -68,10 +69,7 @@ class Troco
                 }
             }
 
-            if(array_keys($this->notas)){
-                break;
-            }
-        }
+        //}
 
         $this->resto = $reais;
 
